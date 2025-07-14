@@ -11,17 +11,18 @@ public class Main {
         // to see how IntelliJ IDEA suggests fixing it.
         int value, x, y;
         Scanner scanner = new Scanner(System.in);  // Create a Scanner object
-        resolver resolverSudoku = new resolver(3);
+        resolver resolverSudoku = new resolver(9);
 
-        while(!resolverSudoku.isEmpty()){
-            System.out.println("write pos x: ");
+        while(!resolverSudoku.isComplete()){
+            System.out.println("write row: ");
             x = scanner.nextInt();
-            System.out.println("write pos y: ");
+            System.out.println("write column: ");
             y = scanner.nextInt();
             System.out.println("write value: ");
             value = scanner.nextInt();
-            resolverSudoku.insertSpace(x, y, value);
+            if(!resolverSudoku.insertSpace(x, y, value)){
+                System.out.println("Something fails to insert value");
+            }
         }
-        System.out.println("size: " + resolverSudoku.isEmpty());
     }
 }
