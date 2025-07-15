@@ -3,7 +3,7 @@ package sudoku.logic;
 public class Resolver {
 
     private final int[][] table;
-    private int size;
+    private final int size;
 
     public Resolver(int size){
         table = new int[size][size];
