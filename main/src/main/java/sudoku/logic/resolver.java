@@ -1,14 +1,11 @@
 package sudoku.logic;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class resolver {
+public class Resolver {
 
     private final int[][] table;
     private int size;
 
-    public resolver(int size){
+    public Resolver(int size){
         table = new int[size][size];
         this.size = size;
     }
@@ -30,6 +27,7 @@ public class resolver {
             System.out.println("space not empty");
         }
 
+        printTable();
         return false;
     }
 
@@ -58,7 +56,7 @@ public class resolver {
                 }
             }
         }
-        System.out.println("Sum of square is " + (sum + value));
+        System.out.println("Sum of square is " + sum);
         return (sum + value <= 45) && duplicatedValue;
     }
 
@@ -73,7 +71,7 @@ public class resolver {
                 duplicatedValue = false;
             }
         }
-        System.out.println("Sum of row is " + (sum + value));
+        System.out.println("Sum of row is " + sum);
         return (sum + value <= 45) && duplicatedValue;
     }
 
@@ -89,16 +87,16 @@ public class resolver {
             }
         }
 
-        System.out.println("Sum of column is " + (sum + value));
+        System.out.println("Sum of column is " + sum);
         return (sum + value <= 45) && duplicatedValue;
     }
 
     private void printTable(){
-        for (int row = 0; row < 9; row++) {
+        for (int row = 0; row < size; row++) {
             if (row % 3 == 0 && row != 0) {
                 System.out.println("-----------");
             }
-            for (int col = 0; col < 9; col++) {
+            for (int col = 0; col < size; col++) {
                 if (col % 3 == 0 && col != 0) {
                     System.out.print("|");
                 }
